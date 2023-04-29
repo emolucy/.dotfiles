@@ -13,3 +13,9 @@ $ cd .dotfiles
 $ stow <CONFIG_NAME>
 ```
 
+## Per-program setup
+
+A few programs require their own setup.
+
+1. [Tmux](./tmux/README.md)
+2. [Neovim](./nvim/README.md)

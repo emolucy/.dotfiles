@@ -27,12 +27,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- format current file
 vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 
--- quick fix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
 -- find and replace over current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -43,5 +37,8 @@ vim.keymap.set("n", "<leader>fo", vim.cmd.NvimTreeFocus)
 
 -- tab navigation
 vim.keymap.set("n", "<leader>l", vim.cmd.BufferNext)
-vim.keymap.set("n", "<leader>h", vim.cmd.BufferPrevious)
-vim.keymap.set("n", "<leader>x", vim.cmd.BufferClose)
+vim.keymap.set("n", "<leader>h", vim.cmd.BufferPrev)
+vim.keymap.set("n", "<leader>L", vim.cmd.BufferMoveNext)
+vim.keymap.set("n", "<leader>H", vim.cmd.BufferMovePrev)
+
+vim.keymap.set("n", "<leader>x", vim.cmd.BufferDelete)
