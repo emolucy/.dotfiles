@@ -69,8 +69,12 @@ return require('packer').startup(function(use)
     use {
         "akinsho/bufferline.nvim",
         after = "catppuccin",
-        requires = "nvim-web-devicons",
+        requires = {
+            { "nvim-web-devicons" },
+            { "catppuccin" }
+        },
         tag = "*",
+        config = vim.cmd.colorscheme "catppuccin"
     }
     use 'lervag/vimtex'
 
