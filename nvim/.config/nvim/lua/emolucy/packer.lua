@@ -27,8 +27,6 @@ return require('packer').startup(function(use)
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
-    use('theprimeagen/harpoon')
-    use('mbbill/undotree')
     use('tpope/vim-fugitive')
 
     use {
@@ -67,11 +65,18 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-tree/nvim-web-devicons'
 
-    use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
-
+    -- use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
+    use {
+        "akinsho/bufferline.nvim",
+        after = "catppuccin",
+        requires = "nvim-web-devicons",
+        tag = "*",
+    }
     use 'lervag/vimtex'
 
     use { 'christoomey/vim-tmux-navigator', lazy = false }
+
+    use 'famiu/bufdelete.nvim'
 
     if packer_bootstrap then
         require('packer').sync()

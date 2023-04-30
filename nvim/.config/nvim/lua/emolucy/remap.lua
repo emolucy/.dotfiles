@@ -36,9 +36,9 @@ vim.keymap.set("n", "<leader>t", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>fo", vim.cmd.NvimTreeFocus)
 
 -- tab navigation
-vim.keymap.set("n", "<leader>l", vim.cmd.BufferNext)
-vim.keymap.set("n", "<leader>h", vim.cmd.BufferPrev)
-vim.keymap.set("n", "<leader>L", vim.cmd.BufferMoveNext)
-vim.keymap.set("n", "<leader>H", vim.cmd.BufferMovePrev)
+vim.keymap.set("n", "<leader>l", vim.cmd.BufferLineCycleNext)
+vim.keymap.set("n", "<leader>h", vim.cmd.BufferLineCyclePrev)
+vim.keymap.set("n", "<leader>L", vim.cmd.BufferLineMoveNext)
+vim.keymap.set("n", "<leader>H", vim.cmd.BufferLineMovePrev)
 
-vim.keymap.set("n", "<leader>x", vim.cmd.BufferDelete)
+vim.keymap.set("n", "<leader>x", vim.cmd.Bdelete)
