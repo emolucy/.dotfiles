@@ -5,7 +5,7 @@ require("bufferline").setup {
         styles = { "italic", "bold" },
         custom = {
             all = {
-                fill = { bg = "#000000" },
+                fill = { bg = macchiato.mantle },
             },
             macchiato = {
                 background = { fg = macchiato.text },
