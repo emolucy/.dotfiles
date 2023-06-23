@@ -27,8 +27,8 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>']     = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>']     = cmp.mapping.select_next_item(cmp_select),
-    ['<CR>']      = cmp.mapping.confirm({ select = false}),
-    ['<Tab>']     = cmp.mapping.confirm({ select = true}),
+    ['<CR>']      = cmp.mapping.confirm({ select = false }),
+    ['<Tab>']     = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
 })
 
@@ -70,6 +70,56 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+local null_ls = require('null-ls')
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+null_ls.setup({
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format()
+                end,
+            })
+        end
+    end,
+    sources = {
+        null_ls.builtins.formatting.prettier.with({
+            filetypes = {
+                "javascript",
+                "typescript",
+                "css",
+                "scss",
+                "html",
+                "json",
+                "yaml",
+                "markdown",
+                "graphql",
+                "md",
+                "txt",
+            },
+            only_local = "node_modules/.bin",
+        }),
+        null_ls.builtins.diagnostics.eslint.with({
+            filetypes = {
+                "javascript",
+                "typescript",
+            },
+            only_local = "node_modules/.bin",
+        }),
+        null_ls.builtins.formatting.trim_newlines.with({
+            disabled_filetypes = { "rust" },
+        }),
+        null_ls.builtins.formatting.trim_whitespace.with({
+            disabled_filetypes = { "rust" },
+        }),
+        null_ls.builtins.formatting.stylua,
+    }
+})
 
 vim.diagnostic.config({
     virtual_text = false
