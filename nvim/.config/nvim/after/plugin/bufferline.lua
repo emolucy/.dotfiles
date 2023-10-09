@@ -5,15 +5,9 @@ require("bufferline").setup {
         styles = { "italic", "bold" },
         custom = {
             all = {
-                fill = { bg = macchiato.mantle },
-            },
-            macchiato = {
-                background = { fg = macchiato.text },
-            },
-            latte = {
-                background = { fg = "#000000" },
-            },
-        },
+                fill = { bg = macchiato.crust },
+            }
+        }
     },
     options = {
         offsets = {
@@ -21,7 +15,9 @@ require("bufferline").setup {
                 filetype = "NvimTree",
             }
         },
-        tab_size = 22
+        separator_style = "slant",
+        tab_size = 20,
+        themable = true,
     }
 }
 

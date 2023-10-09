@@ -229,6 +229,6 @@ client.urgent            $blue     $base  $blue  $overlay0  $base
 client.placeholder       $overlay0 $base  $text  $overlay0  $base
 client.background        $base
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
-gaps inner 5
+gaps inner 15

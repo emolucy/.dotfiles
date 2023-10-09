@@ -6,7 +6,9 @@ require("catppuccin").setup({
         conditionals = { "italic" },
     },
     integrations = {
+        cmp = true,
         nvimtree = true,
+        treesitter = true,
     },
 })
 
