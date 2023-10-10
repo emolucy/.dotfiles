@@ -15,7 +15,7 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
     -- Packer can manage itself
-    use({"wbthomason/packer.nvim", event = "VimEnter"})
+    use("wbthomason/packer.nvim")
 
     use({
         "nvim-telescope/telescope.nvim",
@@ -25,6 +25,10 @@ return require("packer").startup(function(use)
     })
 
     use({ "catppuccin/nvim", as = "catppuccin" })
+    use({'rktjmp/lush.nvim'})
+    use "rktjmp/shipwright.nvim"
+
+    use({'~/charcoal-feathers-extended', config = vim.cmd.colorscheme "charcoalfeathers"})
 
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
     use("nvim-treesitter/playground")
@@ -74,7 +78,7 @@ return require("packer").startup(function(use)
             { "nvim-web-devicons" },
             { "catppuccin" },
         },
-        config = vim.cmd.colorscheme "catppuccin"
+        --config = vim.cmd.colorscheme "catppuccin"
     })
 
     use("nvim-tree/nvim-tree.lua")

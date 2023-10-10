@@ -1,0 +1,21 @@
+set $wallpaper /home/lucy/Pictures/rakka.jpg
+
+set $background #1e0e16
+set $foreground #ebe0c7
+
+set $color0 #1e0e16
+set $color1 #9B6854
+set $color2 #B28E66
+set $color3 #D3A167
+set $color4 #E8C474
+set $color5 #A87A82
+set $color6 #D4B28B
+set $color7 #ebe0c7
+set $color8 #a49c8b
+set $color9 #9B6854
+set $color10 #B28E66
+set $color11 #D3A167
+set $color12 #E8C474
+set $color13 #A87A82
+set $color14 #D4B28B
+set $color15 #ebe0c7

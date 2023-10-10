@@ -1,0 +1,21 @@
+use_nerdfont = true
+flip_status_indicators = true
+library_tabs = [ "albums", "playlists", "artists", "tracks" ]
+
+[theme]
+background = "#1E0E16"
+primary = "#EBE0C7"
+secondary = "#DEC58E"
+title = "#B7A073"
+playing = "#A87A82"
+playing_selected = "#A87A82"
+playing_bg = "#1E0E16"
+highlight = "#DEC58E"
+highlight_bg = "#1E0E16"
+error = "#FFE4E4"
+error_bg = "#CE6969"
+statusbar = "#EBE0C7"
+statusbar_progress = "#A8966D"
+statusbar_bg = "#B28E66"
+cmdline = "#EBE0C7"
+cmdline_bg = "#1E0E16"

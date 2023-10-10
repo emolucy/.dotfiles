@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/lucy/Pictures/rakka.jpg"
+let background = "#1e0e16"
+let foreground = "#ebe0c7"
+let cursor     = "#ebe0c7"
+
+" Colors
+let color0  = "#1e0e16"
+let color1  = "#9B6854"
+let color2  = "#B28E66"
+let color3  = "#D3A167"
+let color4  = "#E8C474"
+let color5  = "#A87A82"
+let color6  = "#D4B28B"
+let color7  = "#ebe0c7"
+let color8  = "#a49c8b"
+let color9  = "#9B6854"
+let color10 = "#B28E66"
+let color11 = "#D3A167"
+let color12 = "#E8C474"
+let color13 = "#A87A82"
+let color14 = "#D4B28B"
+let color15 = "#ebe0c7"
