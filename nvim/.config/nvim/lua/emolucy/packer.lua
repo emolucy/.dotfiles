@@ -24,11 +24,17 @@ return require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } },
     })
 
-    use({ "catppuccin/nvim", as = "catppuccin" })
-    use({'rktjmp/lush.nvim'})
-    use "rktjmp/shipwright.nvim"
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin",
+        lazy = false,
+        priority = 150,
+    })
+    use({ "ellisonleao/gruvbox.nvim" })
+    -- use({'rktjmp/lush.nvim'})
+    -- use "rktjmp/shipwright.nvim"
 
-    use({'~/charcoal-feathers-extended', config = vim.cmd.colorscheme "charcoalfeathers"})
+    -- use({'~/charcoal-feathers-extended', as = "charcoalfeathers", config = vim.cmd.colorscheme "charcoalfeathers"})
 
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
     use("nvim-treesitter/playground")
@@ -73,12 +79,12 @@ return require("packer").startup(function(use)
     use("nvim-tree/nvim-web-devicons")
     use({
         "akinsho/bufferline.nvim",
-        after = "catppuccin",
         requires = {
             { "nvim-web-devicons" },
-            { "catppuccin" },
         },
-        --config = vim.cmd.colorscheme "catppuccin"
+        lazy = false,
+        after = "catppuccin",
+        config = vim.cmd.colorscheme("catppuccin")
     })
 
     use("nvim-tree/nvim-tree.lua")
