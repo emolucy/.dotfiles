@@ -73,6 +73,7 @@ lsp.setup()
 
 local null_ls = require('null-ls')
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local h = require("null-ls.helpers")
 
 null_ls.setup({
     on_attach = function(client, bufnr)
@@ -118,6 +119,13 @@ null_ls.setup({
             disabled_filetypes = { "rust" },
         }),
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.clang_format.with({
+            generator_opts = {
+                command = "clang-format",
+                args = { "-assume-filename", "$FILENAME", "-style=file" },
+                to_stdin = true,
+            },
+        }),
     }
 })
 
