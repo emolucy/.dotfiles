@@ -3,7 +3,6 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-    'tsserver',
     'rust_analyzer',
     'clangd',
     'lua_ls',
@@ -33,6 +32,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 cmp_mappings['<S-Tab>'] = nil
+
 
 lsp.setup_nvim_cmp({
     preselect = 'none',
@@ -97,6 +97,7 @@ null_ls.setup({
                 "scss",
                 "html",
                 "json",
+                "jsonc",
                 "yaml",
                 "markdown",
                 "graphql",
@@ -119,6 +120,7 @@ null_ls.setup({
             disabled_filetypes = { "rust" },
         }),
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.clang_format.with({
             generator_opts = {
                 command = "clang-format",
