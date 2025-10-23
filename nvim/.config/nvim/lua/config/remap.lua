@@ -1,5 +1,6 @@
 -- set leader key to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- move selected lines up and down (respects indentation)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -25,7 +26,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- format current file
-vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<leader>ff", conform.format)
 
 -- find and replace over current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
