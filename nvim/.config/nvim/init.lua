@@ -4,3 +4,6 @@ require("config.set")
 
 -- lazy.nvim config
 require("config.lazy")
+
+-- autocmds
+require('config.autocmds')
