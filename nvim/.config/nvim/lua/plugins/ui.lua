@@ -9,10 +9,29 @@ return {
             view = {
                 width = 35,
             },
+            filters = {
+                custom = { "^.git$" },
+                git_ignored = false,
+            }
         },
-        config = function()
-            require("nvim-tree").setup({})
-        end,
+    },
+
+    -- outline panel
+    {
+        "hedyhli/outline.nvim",
+        keys = {
+            { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+        },
+        opts = {
+            outline_window = {
+                width = 15,
+                relative_width = true,
+                focus_on_open = false,
+            },
+            outline_items = {
+                show_symbol_details = false,
+            },
+        },
     },
 
     -- bufferline
@@ -26,7 +45,7 @@ return {
                         filetype = "NvimTree",
                     },
                 },
-                tab_size = 22,
+                tab_size = 20,
             },
         },
     },
