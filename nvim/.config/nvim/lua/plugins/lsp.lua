@@ -10,10 +10,6 @@ return {
         },
 
         config = function()
-            vim.diagnostic.config({
-                underline = false,
-            })
-
             vim.keymap.set("n", "<leader>vd", function()
                 vim.diagnostic.open_float()
             end, opts)
@@ -40,6 +36,13 @@ return {
                     },
                 },
             })
+
+            -- use undercurl
+            local colors = require("catppuccin.palettes").get_palette()
+            vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = colors.red })
+            vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = colors.peach })
+            vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = colors.teal })
+            vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = colors.green })
         end,
     },
 
