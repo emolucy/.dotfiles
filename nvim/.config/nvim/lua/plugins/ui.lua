@@ -7,7 +7,7 @@ return {
         },
         opts = {
             view = {
-                width = 35,
+                width = 28,
             },
             filters = {
                 custom = { "^.git$" },
