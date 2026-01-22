@@ -63,8 +63,8 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "lua_ls",
-                "texlab",
-            },
+                "jdtls",
+                "texlab" },
             automatic_installation = true,
         },
     },
@@ -96,6 +96,7 @@ return {
                 rust = { "rustfmt" },
                 javascript = { "prettier" },
                 c = { "clang_format" },
+                java = { "lsp" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()
@@ -103,5 +104,34 @@ return {
                 lsp_format = "fallback",
             },
         },
+    },
+
+    -- #### LANGUAGE SPECIFIC SETUP ####
+    -- JAVA:
+    {
+        "mfussenegger/nvim-jdtls",
+        ft = "java",
+        config = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "java",
+                callback = function()
+                    local jdtls = require("jdtls")
+
+                    local root_dir = require("jdtls.setup").find_root({
+                        "gradlew", "mvnw", ".git",
+                    })
+                    if not root_dir then return end
+
+                    local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+                    local workspace = vim.fn.stdpath("cache") .. "/jdtls/" .. project_name
+
+                    jdtls.start_or_attach({
+                        cmd = { "jdtls" },
+                        root_dir = root_dir,
+                        init_options = { workspace = workspace },
+                    })
+                end,
+            })
+        end,
     },
 }

@@ -6,4 +6,10 @@ return {
     {
         "christoomey/vim-tmux-navigator"
     },
+
+    {
+        'vyfor/cord.nvim',
+        build = ':Cord update',
+        -- opts = {}
+    }
 }

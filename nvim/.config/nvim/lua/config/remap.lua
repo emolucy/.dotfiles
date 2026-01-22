@@ -17,10 +17,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- cut and copy into system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- copy to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
 
 -- ensure ctrl c and esc operate identically
 vim.keymap.set("i", "<C-c>", "<Esc>")
