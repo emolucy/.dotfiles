@@ -18,7 +18,6 @@ return {
                 "json",
                 "tsx",
                 "html",
-                "java",
             },
 
             auto_install = true,

@@ -134,4 +134,35 @@ return {
             })
         end,
     },
+
+    -- PLANTUML:
+    {
+        "aklt/plantuml-syntax",
+        ft = { "plantuml" },
+        config = function()
+            -- detect the filetype
+            vim.filetype.add({
+                extension = {
+                    puml = "plantuml",
+                    plantuml = "plantuml",
+                },
+            })
+
+            -- render on save
+            vim.api.nvim_create_autocmd("BufWritePost", {
+                pattern = { "*.puml", "*.plantuml" },
+                callback = function(args)
+                    vim.system({ "plantuml", "-tsvg", args.file }):wait()
+                end,
+            })
+
+            -- keybind for rendering
+            vim.keymap.set("n", "<leader>pu", function()
+                vim.cmd("write")
+                local file = vim.fn.expand("%:p")
+                vim.system({ "plantuml", "-tsvg", file }):wait()
+                vim.notify("rendered svg")
+            end, { desc = "render plantuml" })
+        end,
+    },
 }

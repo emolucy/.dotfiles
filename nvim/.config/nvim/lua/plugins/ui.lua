@@ -4,10 +4,24 @@ return {
         "nvim-tree/nvim-tree.lua",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
+            opts = {
+                override = {
+                    puml = {
+                        icon = "󰌪",
+                        color = "#6cc644",
+                        name = "PlantUML",
+                    },
+                    plantuml = {
+                        icon = "󰌪",
+                        color = "#6cc644",
+                        name = "PlantUML",
+                    },
+                },
+            },
         },
         opts = {
             view = {
-                width = 28,
+                width = 35,
             },
             filters = {
                 custom = { "^.git$" },
