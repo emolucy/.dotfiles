@@ -1,8 +1,7 @@
 return {
-    -- catppuccin 
+    -- catppuccin
     {
         "catppuccin/nvim",
-        name = "catppuccin",
         show_end_of_buffer = false,
         priority = 1000,
         opts = {
