@@ -41,3 +41,6 @@ vim.keymap.set("n", "<leader>L", vim.cmd.BufferLineMoveNext)
 vim.keymap.set("n", "<leader>H", vim.cmd.BufferLineMovePrev)
 
 vim.keymap.set("n", "<leader>x", vim.cmd.Bdelete)
+
+-- luasnip
+vim.keymap.set("x", "<Tab>", "<Plug>luasnip-expand-or-jump")

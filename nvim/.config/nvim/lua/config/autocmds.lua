@@ -12,3 +12,11 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
         end
     end,
 })
+
+-- automatically compile latex when opening tex files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "tex",
+    callback = function()
+        vim.cmd("VimtexCompile")
+    end,
+})

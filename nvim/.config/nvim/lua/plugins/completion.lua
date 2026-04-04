@@ -38,6 +38,10 @@ return {
                 default = { "lsp", "path", "buffer", "snippets" },
             },
 
+            snippets = {
+                preset = "luasnip",
+            },
+
             fuzzy = { implementation = "prefer_rust_with_warning" },
 
             signature = { enabled = true },
@@ -49,5 +53,15 @@ return {
     {
         "L3MON4D3/LuaSnip",
         version = "2.*",
+        config = function()
+            require("luasnip").config.setup({
+                enable_autosnippets = true,
+                store_selection_keys = "<Tab>",
+            })
+            require("luasnip-latex-snippets").setup()
+        end,
+        dependencies = {
+            "iurimateus/luasnip-latex-snippets.nvim",
+        },
     },
 }
