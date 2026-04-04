@@ -4,7 +4,11 @@ local augroup = vim.api.nvim_create_augroup("Autocmds", { clear = true })
 vim.api.nvim_create_autocmd({ "QuitPre" }, {
     group = augroup,
     callback = function()
-        vim.cmd("NvimTreeClose")
-        vim.cmd("OutlineClose")
+        local ft = vim.bo.filetype
+        pcall(vim.cmd, "NvimTreeClose")
+        pcall(vim.cmd, "OutlineClose")
+        if ft == "NvimTree" or ft == "Outline" then
+            vim.cmd("qall")
+        end
     end,
 })

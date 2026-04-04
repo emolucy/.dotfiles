@@ -51,7 +51,12 @@ return {
     -- base plugin
     {
         "mason-org/mason.nvim",
-        opts = {},
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("mason").setup()
+            require("mason-registry").refresh()
+        end,
     },
 
     -- lsp-config servers
@@ -64,7 +69,10 @@ return {
                 "clangd",
                 "lua_ls",
                 "jdtls",
-                "texlab" },
+                "eslint",
+                "ts_ls",
+                "texlab",
+            },
             automatic_installation = true,
         },
     },
@@ -77,9 +85,7 @@ return {
         opts = {
             ensure_installed = {
                 "lua_ls",
-                "ts_ls",
                 "prettier",
-                "eslint",
             },
             auto_update = true,
             run_on_start = true,
@@ -95,6 +101,9 @@ return {
                 python = { "isort", "black" },
                 rust = { "rustfmt" },
                 javascript = { "prettier" },
+                javascriptreact = { "prettier" },
+                typescript = { "prettier" },
+                typescriptreact = { "prettier" },
                 c = { "clang_format" },
                 java = { "lsp" },
             },
@@ -165,4 +174,13 @@ return {
             end, { desc = "render plantuml" })
         end,
     },
+
+    -- LATEX
+    {
+        "lervag/vimtex",
+        init = function()
+            vim.g.vimtex_view_method = "skim"
+            vim.g.vimtex_compiler_method = "latexmk"
+        end,
+    }
 }
