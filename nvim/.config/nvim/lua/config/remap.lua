@@ -44,3 +44,9 @@ vim.keymap.set("n", "<leader>x", vim.cmd.Bdelete)
 
 -- luasnip
 vim.keymap.set("x", "<Tab>", "<Plug>luasnip-expand-or-jump")
+
+-- compile vimtex
+vim.keymap.set("n", "<leader>c", vim.cmd.VimtexCompile)
+
+-- fix last spelling mistake
+vim.keymap.set("i", "<C-s>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { silent = true })

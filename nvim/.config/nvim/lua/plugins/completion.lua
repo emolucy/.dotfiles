@@ -18,7 +18,7 @@ return {
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = {
-                preset = "super-tab",
+                preset = "default",
             },
 
             appearance = {
@@ -44,7 +44,7 @@ return {
 
             fuzzy = { implementation = "prefer_rust_with_warning" },
 
-            signature = { enabled = true },
+            signature = { enabled = false },
         },
         opts_extend = { "sources.default" },
     },

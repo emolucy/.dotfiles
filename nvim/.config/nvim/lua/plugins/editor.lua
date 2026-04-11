@@ -51,7 +51,6 @@ return {
                 "c",
                 "lua",
                 "vim",
-                "latex",
                 "gitignore",
                 "json",
                 "tsx",

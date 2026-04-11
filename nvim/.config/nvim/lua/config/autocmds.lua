@@ -13,10 +13,11 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
     end,
 })
 
--- automatically compile latex when opening tex files
+-- enable spellcheck in tex files
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "tex",
     callback = function()
-        vim.cmd("VimtexCompile")
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en_us"
     end,
 })
